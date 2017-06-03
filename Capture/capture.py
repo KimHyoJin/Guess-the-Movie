@@ -2,27 +2,30 @@ import numpy as np
 import cv2
 import time
 
-# title of video file
-title = "sample.mp4";
-cap = cv2.VideoCapture(title)
 
-# parsing the title : split the extension
-title_parsing = title.split(".")[0]
+for i in range(0, 80):
 
-while(True):
-    # Capture frame-by-frame
-    ret, frame = cap.read()
+    # title of video file
+    title = str(i) + ".mp4"
+    cap = cv2.VideoCapture(title)
 
-    if(ret):
-    	now = time.localtime()
+    # parsing the title : split the extension
+    title_parsing = title.split(".")[0]
 
-    	# save the frame : [title + timestamp(min) + timestamp(sec) . jpg]
-    	cv2.imwrite(title_parsing + str(now.tm_min) + str(now.tm_sec) + ".jpg" ,frame)
-    
-    	if cv2.waitKey(1) & 0xFF == ord('q'):
-       		break
-    else:
-    	break
+    while(True):
+        # Capture frame-by-frame
+        ret, frame = cap.read()
 
-cap.release()
-cv2.destroyAllWindows()
+        if(ret):
+        	now = time.localtime()
+
+        	# save the frame : [title + timestamp(min) + timestamp(sec) . jpg]
+        	cv2.imwrite(title_parsing + str(now.tm_min) + str(now.tm_sec) + ".jpg" ,frame)
+        
+        	if cv2.waitKey(1) & 0xFF == ord('q'):
+           		break
+        else:
+        	break
+
+    cap.release()
+    cv2.destroyAllWindows()
