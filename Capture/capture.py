@@ -3,7 +3,7 @@ import cv2
 import time
 
 
-for i in range(0, 80):
+for i in range(0, 1):
 
     # title of video file
     title = str(i) + ".mp4"
@@ -20,7 +20,7 @@ for i in range(0, 80):
         	now = time.localtime()
 
         	# save the frame : [title + timestamp(min) + timestamp(sec) . jpg]
-        	cv2.imwrite(title_parsing + str(now.tm_min) + str(now.tm_sec) + ".jpg" ,frame)
+        	cv2.imwrite(title_parsing + "_" + str(now.tm_min) + str(now.tm_sec) + ".jpg" ,frame)
         
         	if cv2.waitKey(1) & 0xFF == ord('q'):
            		break
