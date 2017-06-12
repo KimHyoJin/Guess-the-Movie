@@ -8,7 +8,7 @@ while True:
 	line = f.readline()
 	if line == '':
 		break
-	cmd = "youtube-dl -o " + str(name) + ".mp4" + " " +line
+	cmd = "youtube-dl -o " + "/Volumes/none/" +str(name) + ".mp4" + " " +line
 	os.system(cmd)
 	name = name + 1;
 
